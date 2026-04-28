@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sket.sharedflowdemo.ui.theme.SharedFlowDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,8 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SharedFlowDemoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    StartScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +31,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun StartScreen(
+    modifier: Modifier = Modifier, viewModel: DemoViewModel = viewModel()
+) {
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = "Hello !", modifier = modifier
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SharedFlowDemoTheme {
-        Greeting("Android")
-    }
 }
